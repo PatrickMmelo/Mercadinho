@@ -2,11 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8c5f6;
+  background-color: #803fd4;
 }
 
 header {
-  background-color: #ba85ff;
+  background-color: #4b1494;
   color: white;
   padding: 1rem;
   display: flex;
@@ -20,7 +20,7 @@ header h1 {
 }
 
 button {
-  background-color: #5dcaaf;
+  background-color: #3f62ad;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -30,7 +30,7 @@ button {
 }
 
 button:hover {
-  background-color: #166954;
+  background-color: #163a69;
 }
 
 #tela-login,
@@ -135,7 +135,7 @@ button:hover {
 }
 
 #itens-carrinho li button {
-  background-color: #f0332f;
+  background-color: #f12e2b;
   color: white;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
@@ -144,7 +144,7 @@ button:hover {
 }
 
 #itens-carrinho li button:hover {
-  background-color: #661212;
+  background-color: #640f0f;
 }
 
 @media (max-width: 600px) {
