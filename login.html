@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Cadastro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8c5f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      background-color: #5dcaaf;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #246d5b;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Login / Cadastro</h2>
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="logar()">Entrar</button>
+    <button onclick="cadastrar()">Cadastrar</button>
+  </div>
+
+  <script>
+    function cadastrar() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+
+      if (!usuario || !senha) {
+        alert("Preencha todos os campos.");
+        return;
+      }
+
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+      const existe = usuarios.find(u => u.usuario === usuario);
+      if (existe) {
+        alert("Este usuário já está cadastrado.");
+        return;
+      }
+
+      usuarios.push({ usuario, senha });
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      alert("Cadastro realizado com sucesso!");
+    }
+
+    function logar() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+      const user = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+
+      if (user) {
+        localStorage.setItem("logado", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("Usuário ou senha inválidos.");
+      }
+    }
+  </script>
+</body>
+</html>

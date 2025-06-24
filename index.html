@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Market</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="tela-login">
+    <h2>Login</h2>
+    <input type="text" id="campo-usuario" placeholder="Digite seu nome de usuário">
+    <button onclick="fazerLogin()">Entrar</button>
+  </div>
+
+  <div id="aplicativo" style="display:none;">
+    <header>
+      <h1>Seja bem-vindo ao Mercado Digital</h1>
+      <button onclick="fazerLogout()">Sair</button>
+    </header>
+
+    <section id="catalogo">
+      <h2>Catálogo de Produtos</h2>
+      <div id="lista-produtos"></div>
+    </section>
+
+    <section id="carrinho">
+      <h2>Carrinho de Compras</h2>
+      <ul id="itens-carrinho"></ul>
+      <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+      <button onclick="abrirCheckout()">Finalizar Compra</button>
+    </section>
+
+<div id="overlay-checkout" class="overlay" style="display: none;">
+  <div class="modal-checkout">
+    <button class="fechar" onclick="fecharCheckout()">×</button>
+    <h2>Checkout</h2>
+    <div id="resumo-compra"></div>
+
+    <label for="metodo-pagamento">Método de pagamento:</label>
+    <select id="metodo-pagamento">
+      <option value="pix">Pix</option>
+      <option value="cartao">Cartão de Crédito</option>
+      <option value="boleto">Boleto</option>
+    </select>
+
+    <input type="text" id="campo-endereco" placeholder="Endereço para entrega">
+
+    <button onclick="confirmarPedido()">Confirmar Pedido</button>
+  </div>
+</div>
+
+</section>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
